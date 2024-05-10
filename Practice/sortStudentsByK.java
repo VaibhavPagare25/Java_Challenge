@@ -17,16 +17,18 @@ class SortStudents {
         for (int i = 0; i < students; i++) {
             arrayList.add(sc.nextInt());
         }
+
         for (int i = 0; i < k; i++) {
-            int max = Integer.MIN_VALUE;
-            for (int j = 0; j < arrayList.size(); j++) {
-                if (arrayList.get(j) > max) {
-                    max = arrayList.get(j);
-                    System.out.println(stringList.get(j) + ":" + arrayList.get(j));
+            int max = 0;
+            for (int j = 1; j < arrayList.size(); j++) {
+                if (arrayList.get(j) > arrayList.get(max)) {
+                    max = j;
                 }
-                arrayList.remove(j);
-                stringList.remove(j);
             }
+            System.out.println(stringList.get(max) + ":" + arrayList.get(max));
+            arrayList.remove(max);
+            stringList.remove(max);
         }
+
     }
 }
